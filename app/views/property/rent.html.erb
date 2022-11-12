@@ -1,1 +1,0 @@
-<h1>Rent Properties</h1>
