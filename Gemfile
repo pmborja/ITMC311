@@ -4,9 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.1.2"
 
 gem 'devise', '~> 4.8', '>= 4.8.1'  # Authentication Setup (user accounts)
-gem 'jquery-rails'
 
-gem "tzinfo-data"
+gem 'jquery-rails'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3", ">= 7.0.3"

@@ -14,27 +14,23 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
   </head>
   <body>
 
-
-    <div class="container">
-
-      <!-- Alert Messages -->
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <div >
+       <!-- Partial page for Navbar -->
+      <%= render '/header'%>
 
       <% if user_signed_in? %>
        <div> Welcome <%= current_user.email %> </div>
       <% end %>
 
-      <br/> <!-- Partial page for Navbar -->
-        <%= render '/header'%>
-      <br/>
 
       <!-- Ruby code inserts the page content here-->
       <%= yield %>
+        <!-- Alert Messages -->
+        <div class="notice" ><%= notice %></div>
+        <div class="alert"><%= alert %></div>
     </div>
 
     <!--Bootstrap Bundle w/ Popper -->
