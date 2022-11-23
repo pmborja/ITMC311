@@ -4,4 +4,7 @@ class PropertyController < ApplicationController
 
   def post
   end
+
+  def details
+  end
 end

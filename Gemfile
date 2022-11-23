@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
+gem 'tzinfo-data'
 gem 'devise', '~> 4.8', '>= 4.8.1'  # Authentication Setup (user accounts)
 
 gem 'jquery-rails'

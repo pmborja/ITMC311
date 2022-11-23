@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :postings
   devise_for :users
 
     # Defines the root path route ("/")
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   get 'home/register'
   get 'property/browse'
   get 'property/rent'
-  get 'property/post'
+  get 'postings/index'
+  get 'property/details'
 
 end
