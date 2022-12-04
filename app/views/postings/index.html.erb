@@ -1,0 +1,24 @@
+
+
+<p style="color: green"><%= notice %></p>
+
+<h1>Postings</h1>
+<%= link_to "New posting", new_posting_path %>
+
+<div id="postings">
+  <% @postings.each do |posting| %>
+<div class="row container d-flex flex-wrap justify-content-around">
+
+<div class="col-md-4 mb-3"> 
+    <div class="card">
+        <div class="card-body">
+    <%= render posting %>
+    <p>
+      <%= link_to "Show this posting", posting %>
+    </p>
+    </div>
+    </div>
+</div>
+</div>
+  <% end %>
+</div>
