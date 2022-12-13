@@ -1,15 +1,15 @@
-
-
 <p style="color: green"><%= notice %></p>
 
-<h1>Postings</h1>
+<h1>User Dashboard</h1>
+
 <%= link_to "New posting", new_posting_path %>
 
+<!-- Posts Made by User -->
 <div id="postings">
   <% @postings.each do |posting| %>
 <div class="row container d-flex flex-wrap justify-content-around">
 
-<div class="col-md-4 mb-3"> 
+<div class="col-md-4 mb-3">
     <div class="card">
         <div class="card-body">
     <%= render posting %>
@@ -19,6 +19,18 @@
     </div>
     </div>
 </div>
+
 </div>
   <% end %>
-</div>
+</div><br>
+
+<!-- Properties Rented by User -->
+<h1>Properties You've Rented</h1>
+
+<!-- Properties Rented by Other Users -->
+<h1>Properties Being Rented</h1>
+
+<!-- Featured Properties
+      > Allow renting
+-->
+<h1>Featured Properties</h1>
