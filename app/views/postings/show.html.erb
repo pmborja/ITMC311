@@ -9,14 +9,13 @@
 
             <!-- Edit Post -->
             <div>
-              <% if @posting == current_user %>
+              <% if @posting.user == current_user %>
                 <%= link_to "Edit this posting", edit_posting_path(@posting) %> |
                 <%= button_to "Destroy this posting", @posting, method: :delete %>
-              <% else %>
-                <%= link_to "Back to postings", postings_path %>
-                <!-- Add Renting Module -->
-                
               <% end %>
+              <%= link_to "Back to postings", postings_path %>
+                <!-- Add Renting Module -->
+
             </div>
 
           </div>
