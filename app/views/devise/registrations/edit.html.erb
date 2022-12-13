@@ -1,3 +1,4 @@
+<h1> Dashboard </h1>
 <% resource_name.to_s.humanize %>
 <div class="container rounded mt-5 mb-5">
     <div class="row">
@@ -5,12 +6,27 @@
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
               <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-              <span class="font-weight-bold">Edogaru</span>
-              <span class="text-black-50">edogaru@mail.com.my</span>
+              <span class="font-weight-bold"><%= current_user.email %></span>
+              <span class="text-black-50"> Id: <%= current_user.id %> </span>
               <span> </span>
             </div>
         </div>
 
+<!-- Properties Rented by User -->
+      <div class="col-md-5 border-right">
+        <div class="p-3 py-5">
+          <h1>Properties You're Renting</h1>
+        </div>
+      </div>
+
+<!-- Properties Rented by Other Users -->
+      <div class="col-md-5 border-right">
+          <div class="p-3 py-5">
+            <h1>Properties Being Rented</h1>
+          </div>
+      </div>
+
+<!-- Settings -->
         <div class="col-md-5 border-right">
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
             <%= render "devise/shared/error_messages", resource: resource %>

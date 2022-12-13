@@ -13,20 +13,18 @@
 
         <li class="nav-item">
           <%= link_to "About Us", home_about_path, class:"nav-link" %>
-          <!-- <a class="nav-link" aria-current="page" href= "/home/about" >About Us</a> -->
         </li>
 
         <li class="nav-item">
           <%= link_to "Properties", property_browse_path, class:"nav-link" %>
-          <!-- <a class="nav-link" aria-current="page" href= "/property/browse" >Properties</a> -->
         </li>
 
         <% if user_signed_in? %>
           <li class="nav-item ">
-            <%= link_to "Edit Profile", edit_user_registration_path, class:"nav-link" %>
+            <%= link_to "Dashboard", edit_user_registration_path, class:"nav-link" %>
           </li>
           <li class="nav-item ">
-            <%= link_to "For Rent", postings_path, class:"nav-link" %>
+            <%= link_to "Post Properties", postings_path, class:"nav-link" %>
           </li>
           <li class="nav-item ">
             <!-- 'link_to' doesn't work -->
@@ -39,7 +37,6 @@
           <li class="nav-item ">
             <%= link_to "Register", new_user_registration_path, class:"nav-link" %>
           </li>
-
         <% end %>
 
       </ul>

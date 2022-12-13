@@ -1,4 +1,4 @@
-<h1>Browse / Rent Properties </h1>
+<h1>Browse Properties</h1>
 
 <div class="pb-3 pt-2 bg-dark text-center text-white">
 <div class="display-6 pb-2"> Featured Places </div>
@@ -7,7 +7,7 @@
 <!-- Carousel of Properties (Title)-->
 <section class="pt-5 pb-5">
     <div class="container">
-        <div class="row">
+      <div class="row">
 
             <!-- Title -->
             <div class="col-6">
@@ -109,20 +109,21 @@
                 </div>
               </div>
             </div>
-        </div>
-
-    <div class="col-6">
-      <h3 class="mb-3"> Recently Added Properties </h3>
-      <div>
-        <%= render "property/latest_property" %>
       </div>
-    </div>
 
-    <div class="col-6">
-      <% if user_signed_in? %>
-        <h5 class="mb-3"> Add Property? <%= link_to "Click here", postings_path %> </h5>
-      <% else %>
-        <h5 class="mb-3"> Add Property? <%= link_to "Click here", new_user_session_path %> </h5>
-      <%end%>
+      <div class="col-6">
+        <h3 class="mb-3"> Recently Added Properties </h3>
+        <div>
+          <%= render "property/latest_property" %>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <% if user_signed_in? %>
+          <h5 class="mb-3"> Add Property? <%= link_to "Click here", postings_path %> </h5>
+        <% else %>
+          <h5 class="mb-3"> Add Property? <%= link_to "Click here", new_user_session_path %> </h5>
+        <%end%>
+      </div>
     </div>
 </section>

@@ -1,5 +1,7 @@
 class PostingsController < ApplicationController
   before_action :set_posting, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /postings or /postings.json
   def index
@@ -8,12 +10,12 @@ class PostingsController < ApplicationController
 
   # GET /postings/1 or /postings/1.json
   def show
-
   end
 
   # GET /postings/new
   def new
-    @posting = Posting.new
+    #@posting = Posting.new
+    @posting = current_user.posting.build
   end
 
   # GET /postings/1/edit
@@ -22,8 +24,8 @@ class PostingsController < ApplicationController
 
   # POST /postings or /postings.json
   def create
-    @posting = Posting.new(posting_params)
-
+    #@posting = Posting.new(posting_params)
+    @posting = current_user.posting.build(posting_params)
 
     respond_to do |format|
       if @posting.save
@@ -61,6 +63,11 @@ class PostingsController < ApplicationController
     end
   end
 
+  def correct_user
+    @posting = current_user.posting.find_by(id: params[:id])
+    redirect_to postings_path, notice: "Not Authorized to Edit This Property" if @posting.nil?
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_posting
@@ -69,6 +76,6 @@ class PostingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def posting_params
-      params.require(:posting).permit(:property_name, :address, :rent_per_month, :service_charge, :additional_charges, :security_deposit, :property_size, :property_type, :rooms, :other_details, :inclusions)
+      params.require(:posting).permit(:property_name, :address, :rent_per_month, :service_charge, :additional_charges, :security_deposit, :property_size, :property_type, :rooms, :other_details, :inclusions, :user_id)
     end
 end

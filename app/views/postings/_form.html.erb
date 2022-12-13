@@ -65,7 +65,11 @@
   <div>
     <%= form.label :inclusions, style: "display: block" %>
     <%= form.text_field :inclusions %>
-  </div>
+  </div><br>
+
+  <div> <!-- User Id (hidden) -->
+    <%= form.number_field :user_id, id: :posting_user_id, class:"form-control", value: current_user.id, type: :hidden %>
+  </div><br>
 
   <div>
     <%= form.submit %>
