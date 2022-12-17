@@ -1,0 +1,30 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Properties You Rented</h1>
+<% @rentings.each do |renting| %>
+  <% if renting.user_id == current_user.id %>
+<div class="container-fluid" id="rentings">
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Property ID</th>
+        <th scope="col">Start Date</th>
+        <th scope="col">End Date</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    <thead>
+    <tbody>
+      <tr>
+        <td><%= renting.posting_id %></td>
+        <td><%= renting.start_date %></td>
+        <td><%= renting.end_date %></td>
+        <td><%= link_to "Renew Lease", edit_renting_path(renting.id) %></td>
+        <td><%= button_to "Cancel Lease", @renting, method: :delete %></td>
+      </tr>
+    </tbody>
+  </table>
+  <% end %>
+<% end %>
+</div>

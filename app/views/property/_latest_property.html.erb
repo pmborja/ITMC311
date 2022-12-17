@@ -1,17 +1,16 @@
 <!-- Latest Properties -->
 <% @postings.each do |posting| %>
 <div class="row container d-flex flex-wrap justify-content-around">
-
-<div class="col-md-4 mb-3">
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title"><%= posting.property_name %> Property</h4>
-            <p class="card-text">Address: <%= posting.address %></p>
-            <p class="card-text">Rent: <%= posting.rent_per_month %></p>
-            <p class="card-text">Rooms: <%= posting.rooms %></p>
-            <%= link_to "View Details", posting, class:"btn btn-primary py-2 px-3" %>
-        </div>
-    </div>
-</div>
+  <div class="col-md-4 mb-3">
+      <div class="card">
+          <div class="card-body">
+              <h4 class="card-title"><%= posting.property_name %> Property</h4>
+              <p class="card-text">Address: <%= posting.address %></p>
+              <p class="card-text">Rent: <%= posting.rent_per_month %></p>
+              <p class="card-text">Rooms: <%= posting.rooms %></p>
+              <%= link_to "View Details", posting, class:"btn btn-primary py-2 px-3" %>
+          </div>
+      </div>
+  </div>
 </div>
 <% end %>

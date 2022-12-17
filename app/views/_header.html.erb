@@ -3,7 +3,7 @@
   <div class="container-fluid">
 
     <!-- Link to Root Page (Homepage) -->
-    <%= link_to 'RenTap', root_path, class:"navbar-brand" %>
+    <%= link_to 'RenTAP', root_path, class:"navbar-brand" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -16,7 +16,7 @@
         </li>
 
         <li class="nav-item">
-          <%= link_to "Properties", property_browse_path, class:"nav-link" %>
+          <%= link_to "Browse", property_browse_path, class:"nav-link" %>
         </li>
 
         <% if user_signed_in? %>
@@ -24,11 +24,14 @@
             <%= link_to "Dashboard", edit_user_registration_path, class:"nav-link" %>
           </li>
           <li class="nav-item ">
-            <%= link_to "Post Properties", postings_path, class:"nav-link" %>
+            <%= link_to "Post & Rent", postings_path, class:"nav-link" %>
+          </li>
+          <li class="nav-item ">
+            <%= link_to "Rented Properties", rentings_path, class:"nav-link" %>
           </li>
           <li class="nav-item ">
             <!-- 'link_to' doesn't work -->
-            <%= button_to "Log out", destroy_user_session_path, method: :delete, class:"nav-link" %>
+            <%= button_to "Log out", destroy_user_session_path, method: :delete, class:"nav-link btn btn-light" %>
           </li>
         <% else %>
           <li class="nav-item ">

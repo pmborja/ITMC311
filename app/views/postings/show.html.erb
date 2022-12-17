@@ -1,3 +1,6 @@
+<h1> Property: <%= @posting.property_name %> </h1>
+
+<!-- Property Info -->
 <div class="row container d-flex flex-wrap justify-content-around">
   <div class="col-md-4 mb-3">
       <div class="card">
@@ -5,20 +8,88 @@
 
             <p style="color: green"><%= notice %></p>
 
-            <%= render @posting %>
+            <!-- Property Info -->
+            <h4>Property ID:
+              <%= @posting.id %>
+            </h4>
 
-            <!-- Edit Post -->
-            <div>
-              <% if @posting.user == current_user %>
-                <%= link_to "Edit this posting", edit_posting_path(@posting) %> |
-                <%= button_to "Destroy this posting", @posting, method: :delete %>
-              <% end %>
-              <%= link_to "Back to postings", postings_path %>
-                <!-- Add Renting Module -->
+            <p>
+              <strong>Address:</strong>
+              <%= @posting.address %>
+            </p>
 
-            </div>
+            <p>
+              <strong>Rent per month:</strong>
+              <%= @posting.rent_per_month %>
+            </p>
 
+            <p>
+              <strong>Service charge:</strong>
+              <%= @posting.service_charge %>
+            </p>
+
+            <p>
+              <strong>Additional charges:</strong>
+              <%= @posting.additional_charges %>
+            </p>
+
+            <p>
+              <strong>Security deposit:</strong>
+              <%= @posting.security_deposit %>
+            </p>
+
+            <p>
+              <strong>Property size:</strong>
+              <%= @posting.property_size %>
+            </p>
+
+            <p>
+              <strong>Property type:</strong>
+              <%= @posting.property_type %>
+            </p>
+
+            <p>
+              <strong>Rooms:</strong>
+              <%= @posting.rooms %>
+            </p>
+
+            <p>
+              <strong>Other details:</strong>
+              <%= @posting.other_details %>
+            </p>
+
+            <p>
+              <strong>Inclusions:</strong>
+              <%= @posting.inclusions %>
+            </p>
           </div>
-      </div>
+
+          <div class="container"> <!-- Edit Post -->
+            <div class="row">
+                <% if @posting.user == current_user %>
+              <div class="col">
+                <%= link_to "Edit Property", edit_posting_path(@posting), class:"btn btn-primary" %> <br>
+              </div>
+              <div class="col">
+                <%= button_to "Remove Property", @posting, method: :delete, class:"btn btn-primary"%>
+              </div>
+                <% end %>
+            </div>
+          </div><br>
+
+          <div class="container">
+            <div class="row">
+                <!-- Renting -->
+                <%= link_to "Rent Property", new_renting_path, class:"btn btn-primary" %>
+            </div>
+          </div><br>
+
+      </div><br>
+
     </div>
+</div>
+
+<!-- Edit Post -->
+<div>
+  <%= link_to "Back to Properties", postings_path %>
 </div>

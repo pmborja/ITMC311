@@ -1,22 +1,64 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Post Properties</h1>
+<h1>Post & Rent Properties</h1>
 
-<!-- Post Property -->
+<br><h2>Properties You Posted</h2>
+
+  <!-- Post Property -->
 <%= link_to "New posting", new_posting_path %>
 
-<br><h2>Posted Properties</h2>
+<div id="postings">
+  <% @postings.each do |posting| %>
+    <% if posting.user_id == current_user.id %>
+    <div class="row container d-flex flex-wrap justify-content-around">
+      <div class="col-md-4 mb-3">
+          <div class="card">
+              <div class="card-body">
+                <p>
+                  <strong>Property name:</strong>
+                  <%= posting.property_name %>
+                </p>
+
+                <p>
+                  <strong>Address:</strong>
+                  <%= posting.address %>
+                </p>
+
+                <p>
+                  <strong>Rent per month:</strong>
+                  <%= posting.rent_per_month %>
+                </p>
+                  <%= link_to "View Details", posting, class:"btn btn-primary" %>
+              </div>
+          </div>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+</div><br>
+
+<br><h2>Properties For Rent</h2>
 <div id="postings">
   <% @postings.each do |posting| %>
   <div class="row container d-flex flex-wrap justify-content-around">
     <div class="col-md-4 mb-3">
         <div class="card">
             <div class="card-body">
-            <%= render posting %>
-            <!-- <p> Posted By: <%= posting.user_id %> -->
-            <p>
-              <%= link_to "Show this posting", posting %>
-            </p>
+              <p>
+                <strong>Property name:</strong>
+                <%= posting.property_name %>
+              </p>
+
+              <p>
+                <strong>Address:</strong>
+                <%= posting.address %>
+              </p>
+
+              <p>
+                <strong>Rent per month:</strong>
+                <%= posting.rent_per_month %>
+              </p>
+              <%= link_to "View Details", posting, class:"btn btn-primary" %>
             </div>
         </div>
     </div>

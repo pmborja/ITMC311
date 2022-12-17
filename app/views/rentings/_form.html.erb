@@ -1,0 +1,36 @@
+<%= form_with(model: renting) do |form| %>
+  <% if renting.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(renting.errors.count, "error") %> prohibited this renting from being saved:</h2>
+
+      <ul>
+        <% renting.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :start_date, style: "display: block" %>
+    <%= form.date_field :start_date %>
+  </div><br>
+
+  <div>
+    <%= form.label :end_date, style: "display: block" %>
+    <%= form.date_field :end_date %>
+  </div><br>
+
+  <div> <!-- User Id (hidden) -->
+    <%= form.number_field :user_id, id: :posting_user_id, class:"form-control", value: current_user.id, type: :hidden%>
+  </div>
+
+  <div>
+    Enter the ID of the Property you will rent:
+    <%= form.number_field :posting_id, placeholder: "Property ID" %>
+  </div>
+
+  <br><div>
+    <%= form.submit %>
+  </div>
+<% end %>
