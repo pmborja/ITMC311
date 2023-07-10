@@ -1,1 +1,5 @@
 runtime: ruby32
+
+
+- url: .*
+  script: index.html.erb
